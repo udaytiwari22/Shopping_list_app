@@ -48,10 +48,9 @@ class _GroceryListState extends State<GroceryList> {
           child: ListTile(
             title: Text(_groceryItems[index].name),
             leading: Container(
-              width: 24,
-              height: 24,
-              color: _groceryItems[index].category.color,
-            ),
+                width: 24,
+                height: 24,
+                color: _groceryItems[index].category.color),
             trailing: Text(
               _groceryItems[index].quantity.toString(),
             ),
