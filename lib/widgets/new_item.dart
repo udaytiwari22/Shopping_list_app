@@ -25,22 +25,32 @@ class _NewItemState extends State<NewItem> {
       _formkey.currentState!.save();
       final url = Uri.https('flutter-prep-56341-default-rtdb.firebaseio.com',
           'shopping-list.json');
-      final response = await http.post(url,
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: json.encode({
+      final response = await http.post(
+        url,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: json.encode(
+          {
             'name': _enteredName,
             'quantity': _enteredQuantity,
             'category': _selectedCategory.title,
-          }));
+          },
+        ),
+      );
 
-      print(response.body);
-      print(response.statusCode);
+      final Map<String, dynamic> resData = json.decode(response.body);
       if (!context.mounted) {
         return;
       }
-      Navigator.of(context).pop();
+      Navigator.of(context).pop(
+        GroceryItem(
+          id: resData['name'],
+          name: _enteredName,
+          quantity: _enteredQuantity,
+          category: _selectedCategory,
+        ),
+      );
     }
   }
 
