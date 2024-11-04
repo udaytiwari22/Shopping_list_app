@@ -35,7 +35,7 @@ class _NewItemState extends State<NewItem> {
             'name': _enteredName,
             'quantity': _enteredQuantity,
             'category': _selectedCategory.title,
-          },
+          }, 
         ),
       );
 
