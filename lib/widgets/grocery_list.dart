@@ -31,15 +31,19 @@ class _GroceryListState extends State<GroceryList> {
     try {
       final response = await http.get(url);
       if (response.statusCode >= 400) {
-        setState(() {
-          _error = 'Failed to fetch data. Please try again later.';
-        });
+        setState(
+          () {
+            _error = 'Failed to fetch data. Please try again later.';
+          },
+        );
       }
 
       if (response.body == 'null') {
-        setState(() {
-          _isLoading = false;
-        });
+        setState(
+          () {
+            _isLoading = false;
+          },
+        );
         return;
       }
 
