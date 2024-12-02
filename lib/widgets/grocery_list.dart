@@ -39,11 +39,9 @@ class _GroceryListState extends State<GroceryList> {
       }
 
       if (response.body == 'null') {
-        setState(
-          () {
-            _isLoading = false;
-          },
-        );
+        setState(() {
+          _isLoading = false;
+        });
         return;
       }
 
